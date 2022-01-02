@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+      body {
+        margin: 2em;
+        color: #333;
+      }
+      p {
+        margin: 0.5em 0;
+      }
+      form {
+        margin: 0;
+      }
+      /* end base styles */
+      #bg-selector {
+        font-size: 1em;
+        font-style: italic;
+      }
+      .color {
+        width: 24px;
+        height: 24px;
+        border: 1px solid #555;
+        display: inline-block;
+        margin: 0 0 0 0.2em;
+        cursor: pointer;
+        padding: 2px;
+      }
+      .color img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+      }
+      .black {
+        background-color: #000;
+      }
+      .gray,
+      .picker {
+        background-color: #eaeaea;
+      }
+      .white {
+        background-color: #fff;
+      }
+      .blue {
+        background-color: #00529c;
+      }
+      #colorpicker {
+        visibility: hidden;
+      }
+      .color:last-child {
+        width: 50px;
+        height: 40px;
+        border: 1px solid #555;
+        display: inline-block;
+        margin: 0 0 0 0.2em;
+        cursor: pointer;
+        padding: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Change Background Color With Picker</h1>
+    <div id="bg-selector">
+      Switch background color:
+      <div class="color white" data-value="#fff"></div>
+      <div class="color gray" data-value="#eaeaea"></div>
+      <div class="color black" data-value="#000"></div>
+      <div class="color blue" data-value="#00529c"></div>
+      <div class="color picker" onclick="pickColor();">Color Picker</div>
+    </div>
+    <input id="colorpicker" type="color" />
+  </body>
+  <script>
+    $(function () {
+      //bg color selector
+      $(".color").click(function () {
+        var color = $(this).attr("data-value");
+        $("body").css("background-color", color);
+      });
+
+      $(".picker").css("display", "inline-block");
+      var c = document.getElementById("colorpicker");
+      c.addEventListener(
+        "change",
+        function (e) {
+          //d.innerHTML = c.value;
+          var color = c.value;
+          $("body").css("background-color", color);
+        },
+        false
+      );
+    });
+    function pickColor() {
+      $("#colorpicker").click();
+    }
+  </script>
+</html>

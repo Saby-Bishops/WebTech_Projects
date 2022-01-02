@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: inherit;
+      }
+      body {
+        font-family: "Verdana", sans-serif;
+        color: #333;
+        background: #fff9ef;
+        margin: 0;
+      }
+      h1 {
+        font-family: "Georgia", serif;
+        font-weight: normal;
+        line-height: normal;
+        margin: 0;
+        font-size: 3rem;
+        color: #998463;
+      }
+      p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+      }
+      /* classes */
+      .wrapper {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem 3rem;
+      }
+      .area {
+        position: relative;
+        background: #ffb53f;
+        height: 12rem;
+        margin-bottom: 2rem;
+      }
+      .area p {
+        margin: 0;
+        padding: 1rem 2rem;
+      }
+      .square {
+        background: #998463;
+        height: 6em;
+        width: 6em;
+        z-index: 1;
+      }
+      .square1,
+      .square2,
+      .square3 {
+        position: absolute;
+        bottom: 2em;
+        left: 2em;
+      }
+      .extra-top-padding {
+        padding-top: 2rem;
+      }
+      .square2nd {
+        position: absolute;
+        bottom: 2em;
+        left: 10rem;
+        border-radius: 50%;
+        background-color: white;
+      }
+      .square2n {
+        position: absolute;
+        bottom: 2em;
+        left: 10rem;
+        border-radius: 50%;
+        background-color: white;
+      }
+    </style>
+    <script>
+      $(document).ready(() => {
+        $(".in-and-out")
+          .on("mouseenter", () => {
+            $(".square1").hide();
+            $(".square2nd").show();
+          })
+          .on("mouseleave", () => {
+            $(".square1").show();
+            $(".square2nd").hide();
+          });
+
+        $(".up-and-down")
+          .on("mousedown", () => {
+            $(".square2").hide();
+            $(".square2n").show();
+          })
+          .on("mouseup", () => {
+            $(".square2").show();
+            $(".square2n").hide();
+          });
+        // keep the next line at the very bottom, below all your jQuery code
+      });
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>jQuery Mouse Events</h1>
+
+      <div class="area in-and-out">
+        <div class="square square1"></div>
+        <div class="square square2nd"></div>
+        <p>Move the mouse into and out of this area, and watch the square.</p>
+      </div>
+
+      <div class="area up-and-down">
+        <div class="square square2"></div>
+        <div class="square square2n"></div>
+        <p>Press and hold the mouse button in this area. Watch the square.</p>
+      </div>
+    </div>
+  </body>
+</html>

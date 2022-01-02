@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <script>
+    function setNewImage() {
+      document.getElementById("img1").src = "img2.JPG";
+    }
+    function setOldImage(x) {
+      normalImg(x);
+      document.getElementById("img1").src = "img1.JPG";
+    }
+    function mouseDown() {
+      document.getElementById("img1").src = "img3.JPG";
+    }
+    function bigImg(x) {
+      x.style.width = "1080px";
+    }
+
+    function normalImg(x) {
+      x.style.width = "700px";
+    }
+  </script>
+  <body>
+    <center>
+      <br /><br /><br /><br />
+      <
+      <img
+        onmouseover="setNewImage()"
+        onmouseout="setOldImage(this)"
+        onmousedown="mouseDown()"
+        onmouseenter="bigImg(this)"
+        id="img1"
+        src="img1.JPG"
+        alt="An Image"
+        width="700px"
+      />
+    </center>
+  </body>
+</html>
